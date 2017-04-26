@@ -1,5 +1,5 @@
 ---
-ref: hello_st2
+#ref: hello_st2
 name: Ceph
 description: A simple pack containing examples of sensor, rule, and action.
 keywords:
