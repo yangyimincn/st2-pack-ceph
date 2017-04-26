@@ -1,6 +1,6 @@
 ---
-ref: Ceph
-name: Ceph
+ref: ceph
+name: ceph
 description: A simple pack containing examples of sensor, rule, and action.
 keywords:
     - ceph
