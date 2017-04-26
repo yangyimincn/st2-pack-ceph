@@ -112,13 +112,16 @@ class s3_admin:
             for b in user_bucket_list:
                 bucket_info = self.get_bucket_info(b)
                 user_report['object_num'] += bucket_info['num_objects']
-                user_report['size_kb_actual'] += bucket_info['size_kb_actual']
+                user_report['size_kb_actual'] += bucket_info['size_kb_actual'] / 1024 / 1024
 
         quoat_info = self.get_user_quota(uid=uid)
         if quoat_info['enabled'] == True:
             user_report['quota_status'] = 1
 
-        user_report['quota_size'] = quoat_info['max_size_kb']
+        if quoat_info['max_size_kb'] != -1:
+            user_report['quota_size'] = quoat_info['max_size_kb'] / 1024 / 1024
+        else:
+            user_report['quota_size'] = quoat_info['max_size_kb']
 
         return user_report
 

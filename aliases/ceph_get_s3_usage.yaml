@@ -1,0 +1,14 @@
+---
+name: get_s3_usage
+action_ref: ceph.get_s3_usage
+description: get ceph s3 usage status
+formats:
+  - display: "ceph.get user <uid> on cluster <cluster_id>"
+    representation:
+      - "ceph.get {{ uid }} on cluster {{ cluster_id }}"
+
+result:
+  format: |
+    Cluster user usage status:
+    stdout: {{ execution.result.result }}
+    stderr: {{ execution.result.stderr }}
