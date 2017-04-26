@@ -1,0 +1,9 @@
+---
+ref: hello_st2
+name: Ceph
+description: A simple pack containing examples of sensor, rule, and action.
+keywords:
+    - ceph
+version: 0.0.1
+author: yimin.yang
+email: yimin.yang@ele.me

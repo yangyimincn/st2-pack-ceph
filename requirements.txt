@@ -1,0 +1,1 @@
+requests_aws>=0.1.8
