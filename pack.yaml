@@ -1,7 +1,7 @@
 ---
 ref: ceph
 name: ceph
-description: A simple pack containing examples of sensor, rule, and action.
+description: St2 pack for ceph
 keywords:
     - ceph
 version: 0.0.1
