@@ -1,9 +1,9 @@
 ---
-name: "ceph_get_s3_usage"
+name: "get_s3_usage"
 runner_type: "python-script"
 description: "Get s3 usgae info."
 enabled: true
-entry_point: "ceph_get_s3_usage.py"
+entry_point: "get_s3_usage.py"
 parameters:
   cluster_id:
     type: "string"
