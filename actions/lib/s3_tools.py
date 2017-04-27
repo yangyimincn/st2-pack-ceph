@@ -99,8 +99,8 @@ class s3_admin:
             'uid': uid,
             'bucket_num': 0,
             'object_num': 0,
-            'size_kb_actual': 0,
-            'quota_size': 0,
+            'actual_used_size': '',
+            'quota_size': -1,
             'quota_status': 0
         }
 
@@ -108,18 +108,22 @@ class s3_admin:
 
         user_report['bucket_num'] = len(user_bucket_list)
 
+        actual_size = 0
+
         if user_report['bucket_num'] > 0:
             for b in user_bucket_list:
                 bucket_info = self.get_bucket_info(b)
                 user_report['object_num'] += bucket_info['num_objects']
-                user_report['size_kb_actual'] += bucket_info['size_kb_actual'] / 1024 / 1024
+                #user_report['size_actual_GB'] += float(bucket_info['size_kb_actual'] / 1024 / 1024)
+                actual_size = bucket_info['size_kb_actual']
 
+        user_report['actual_used_size'] = self.size_convert(actual_size)
         quoat_info = self.get_user_quota(uid=uid)
         if quoat_info['enabled'] == True:
             user_report['quota_status'] = 1
 
         if quoat_info['max_size_kb'] != -1:
-            user_report['quota_size'] = quoat_info['max_size_kb'] / 1024 / 1024
+            user_report['quota_size'] = self.size_convert(quoat_info['max_size_kb'])
         else:
             user_report['quota_size'] = quoat_info['max_size_kb']
 
@@ -132,3 +136,26 @@ class s3_admin:
 
         except Exception as e:
             print(e)
+
+    def size_convert(self, size):
+        '''
+            Convert kb size to suitable size
+        :param size: size of kb
+        :param unit: default = kb
+        :return: size in suitable unit
+        '''
+        size_format = ''
+        if size >= 1024 * 1024 * 1024:
+            size = float(size) / 1024 / 1024 / 1024
+            size_format = '%.4f TB' % size
+        elif size >= 1024 * 1024:
+            size = float(size) / 1024 / 1024
+            size_format = '%.4f GB' % size
+        elif size >= 1024:
+            size = float(size) / 1024
+            size_format = '%.4f MB' % size
+        else:
+            size_format = '%d KB' % size
+
+        return size_format
+
