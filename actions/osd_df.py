@@ -4,7 +4,7 @@ from lib.ceph_admin_tools import CephAdmin
 
 
 class GetStatusAction(Action):
-    def run(self, cluster_id, osd_id, reweight):
+    def run(self, cluster_id):
 
         ceph_admin = CephAdmin(cluster_id)
 
