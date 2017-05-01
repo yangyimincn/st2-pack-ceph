@@ -1,0 +1,19 @@
+---
+name: "osd_reweight"
+runner_type: "python-script"
+description: "Set osd reweight"
+enabled: true
+entry_point: "osd_reweight.py"
+parameters:
+  cluster_id:
+    type: "int"
+    description: "Cluster id"
+    required: true
+  osd_id:
+    type: "int"
+    description: "OSD id"
+    required: true
+  weight:
+    type: "float"
+    description: "OSD weight id."
+    required: true
