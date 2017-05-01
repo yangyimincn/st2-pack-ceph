@@ -6,14 +6,14 @@ enabled: true
 entry_point: "osd_reweight.py"
 parameters:
   cluster_id:
-    type: "int"
+    type: "string"
     description: "Cluster id"
     required: true
   osd_id:
-    type: "int"
+    type: "number"
     description: "OSD id"
     required: true
   weight:
-    type: "float"
+    type: "number"
     description: "OSD weight id."
     required: true
