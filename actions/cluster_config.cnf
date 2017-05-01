@@ -1,0 +1,9 @@
+[infra.ceph.c1]
+
+[infra.ceph.c2]
+
+
+
+[test]
+admin_host = 10.12.10.26
+admin_port = 5000
