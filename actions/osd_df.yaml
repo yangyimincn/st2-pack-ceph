@@ -1,0 +1,11 @@
+---
+name: "osd_df"
+runner_type: "python-script"
+description: "Get Ceph OSD df."
+enabled: true
+entry_point: "osd_df.py"
+parameters:
+  cluster_id:
+    type: "string"
+    description: "Cluster id"
+    required: true
