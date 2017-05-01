@@ -13,7 +13,7 @@ parameters:
     type: "integer"
     description: "OSD id"
     required: true
-  weight:
+  reweight:
     type: "number"
     description: "OSD weight id."
     required: true
