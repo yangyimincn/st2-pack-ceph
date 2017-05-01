@@ -10,10 +10,10 @@ parameters:
     description: "Cluster id"
     required: true
   osd_id:
-    type: "number"
+    type: "integer"
     description: "OSD id"
     required: true
   weight:
-    type: "integer"
+    type: "number"
     description: "OSD weight id."
     required: true
