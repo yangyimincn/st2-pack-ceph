@@ -1,0 +1,14 @@
+---
+    chain:
+        -
+            name: "get_hostname"
+            ref: "core.local"
+            parameters:
+                cmd: "hostname | tr -d ' \n'"
+            on-success: "touch file"
+            on-failure: "c4"
+        -
+            name: "touch file"
+            ref: "core.local"
+            parameters:
+                cmd: "touch /tmp/{{get_host.stdout}}"
